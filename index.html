@@ -29,5 +29,14 @@
     <footer>
         <div class="wrap"></div>
     </footer>
+    
+    <script>
+        let post = new Object();
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(data=> post =data )
+        .then(()=>console.log(post))
+ 
+    </script>
 </body>
 </html>
