@@ -6,40 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/81bc903854.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav>
-        <a href="#" class="logo">LOGO</a>
-        <ul>
-            <li><a href="">Lorem, ipsum.</a></li>
-            <li><a href="">Aut, labore.</a></li>
-            <li><a href="">Voluptatibus, consequatur?</a></li>
-            <li><a href="">Repudiandae, aliquam.</a></li>
-            <li><a href="">Pariatur, iste!</a></li>
-            <li><a href="">Pariatur, iste!</a></li>
-            <li><a href="">Pariatur, iste!</a></li>
-            <li><a href="">Pariatur, iste!</a></li>
-        </ul>
-    </nav>
 
-    <header>
-        <div class="wrap"></div>
-    </header>
-    <main>
-        <div class="wrap"></div>
+    <main id="app">
+        <div class="wrap">
+            <div class="card">
+                <div class='top'>
+                    <span>{{parseInt(results.main.temp)}}</span>
+                    <p>{{results.weather[0].description}}</p>
+                </div>
+
+                <div class="bottom">
+                    <h1>{{ results.name }}</h1>
+                    <h2>
+                        <span>{{time.toLocaleDateString([], {weekday:'short'})}}</span>
+                        <span>
+                            {{time.toLocaleDateString([], {month:'long',day:'numeric'})}}
+                        </span>
+                        <span>
+                            {{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}}
+                        </span>
+                    </h2>
+                    <ul>
+                        <li>{{ parseInt(results.wind.speed) }} KM/H</li>
+                        <li>{{ parseInt(results.main.humidity) }}%</li>
+                        <li>{{ parseInt(results.main.pressure) }} mb</li>
+                    </ul>
+                    
+                    
+                </div>
+                
+
+            </div>
+
+           
+        </div>
     </main>
-    <footer>
-        <div class="wrap"></div>
-    </footer>
-
-    <script>
-        let post = new Object();
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(data=> post =data )
-        .then(()=>console.log(post))
  
-    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const vm = new Vue({
+                el: '#app',
+                data: { 
+                    results:[],
+                    time: new Date(),
+                },
+                mounted(){
+                    axios
+                    .get('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&units=metric&appid=1feaed6664354e68716f8f6fbb03ff5a')
+                    .then(response=>this.results = response.data)
+                }
+
+              });
+  
+      </script>
+    <script>
+    
+    const getData = fetch('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&appid=1feaed6664354e68716f8f6fbb03ff5a')
+    .then(response => response.json())
+    .then(results => {
+        
+        console.log(results)
+      
+     
+        
+    }) 
+   
+    
+   </script>
 </body>
 </html>

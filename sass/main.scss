@@ -1,18 +1,124 @@
 * {
     box-sizing: border-box;
-    list-style: none;
-    color: #fff;
-    
-}
-*+* {
-    margin:0 0 1rem;
+    margin:0;
+    padding:0;
 }
 
+
+  
 body {
-    background: #000;
+    background: rgb(73,50,99);
+    background: linear-gradient(280deg, rgba(73,50,99,1) 0%, rgba(217,160,219,1) 100%) no-repeat;
+    background-size: cover;
+    font-family: 'Antonio', sans-serif;
+    overflow: hidden;
 }
-
 
 .wrap {
-    width: clamp(320px,90vw,1240px);
+    width: clamp(320px, 90vw, 1240px);
+    height: 100vh;
+    margin:0 auto;
+    display: grid;
+    place-items: center;
+    
 }
+
+.card {
+    background: linear-gradient(180deg, rgba(73,50,99,1) 0%, rgba(217,160,219,1) 100%) no-repeat;
+    padding:1rem;
+    border-radius: .25rem;
+    box-shadow: 0 0 1rem rgba(73,50,99,1);
+    color:#fff;
+    width:minmax(100%,500px);
+    
+}
+.top {
+    display: grid;
+    place-items: center;
+    margin:2rem 0 13rem;
+}
+.top span {
+    font-size: 4rem;
+    position: relative;
+    
+}
+.top span::after {
+    content: "";
+    position: absolute;
+    height:.65rem;
+    width:.55rem;
+    border: .2rem solid #fff;
+    border-radius: 60%;
+    top: .7rem; 
+}
+
+.bottom {
+    h1{
+        font-size: 1rem;
+        font-weight: 100;
+        letter-spacing: .1rem;
+    }
+    h2 {
+        font-size: 1rem;
+        font-weight: 100;
+        span {
+            border-right: 2px solid #fff;
+            margin-right: 1rem;
+            padding-right:1rem;
+            &:last-of-type {
+                border:none;
+            }
+        }
+    }
+    ul{
+        display: flex;
+        list-style: none;
+        height:100px;
+        li {
+            width:calc(100%/3);
+            height: 100%;
+            position: relative;
+            text-align: center;
+            padding-top:30%;
+            &:nth-child(1)::before{
+                content: "\f72e";
+                display: block;
+                font-family: "FontAwesome";
+                font-weight: 400;
+                height:50px;
+                width:50px;
+                font-size: 3em;
+                position:absolute;
+                top:1rem;
+                left:1rem;
+            }
+            &:nth-child(2)::before{
+                content: "\f043";
+                display: block;
+                font-family: "FontAwesome";
+                font-weight: 400;
+                height:50px;
+                width:50px;
+                font-size: 3em;
+                position:absolute;
+                top:1rem;
+                left:1rem;
+            }
+            &:nth-child(3)::before{
+                content: "\f5cd";
+                display: block;
+                font-family: "FontAwesome";
+                font-weight: 400;
+                height:50px;
+                width:50px;
+                font-size: 3em;
+                position:absolute;
+                top:1rem;
+                left:1rem;
+            }
+
+        }
+        }
+        
+}
+
