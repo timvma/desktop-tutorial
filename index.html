@@ -16,30 +16,29 @@
         <div class="wrap">
             <div class="card">
                 <div class='top'>
-                    <span>{{parseInt(results.main.temp)}}</span>
-                    <p>{{results.weather[0].description}}</p>
+                    <span>{{}}</span>
+                    <p>{{}}</p>
                 </div>
-
-
+                <h1>{{ }}</h1>
                 
                 <div class="bottom">
-                    <h1>{{ results.name }}</h1>
+                   
                     <h2>
-                        <span>{{time.toLocaleDateString([], {weekday:'short'})}}</span>
+                        <span>{{weekday}}</span>
                         <span>
-                            {{time.toLocaleDateString([], {month:'long',day:'numeric'})}}
+                            {{timeDate}}
                         </span>
                         <span>
-                            {{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}}
+                            {{temp}}
                         </span>
                     </h2>
                     <ul>
-                        <li>{{ parseInt(results.wind.speed) }} KM/H</li>
-                        <li>{{ parseInt(results.main.humidity) }}%</li>
-                        <li>{{ parseInt(results.main.pressure) }} mb</li>
+                        <li>{{  }} KM/H</li>
+                        <li>{{  }}%</li>
+                        <li>{{  }} mb</li>
                     </ul>
                     
-                     
+                     {{error}}
 
                 </div>
                 
@@ -52,22 +51,8 @@
  
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        const vm = new Vue({
-                el: '#app',
-                data: { 
-                    results:[],
-                    time: new Date(),
-                },
-                mounted(){
-                    axios
-                    .get('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&units=metric&appid=1feaed6664354e68716f8f6fbb03ff5a')
-                    .then(response=>this.results = response.data)
-                }
+    <script src="js/main.js"></script>
 
-              });
-  
-      </script>
     <script>
     
     const getData = fetch('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&appid=1feaed6664354e68716f8f6fbb03ff5a')
