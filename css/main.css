@@ -14,9 +14,8 @@ body {
 }
 
 .wrap {
-  width: clamp(320px, 90vw, 1240px);
+  width: 100vw;
   height: 100vh;
-  margin: 0 auto;
   display: -ms-grid;
   display: grid;
   place-items: center;
@@ -26,18 +25,26 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(#493263), to(#d9a0db)) no-repeat;
   background: linear-gradient(180deg, #493263 0%, #d9a0db 100%) no-repeat;
   padding: 1rem;
-  border-radius: .25rem;
-  -webkit-box-shadow: 0 0 1rem #493263;
-          box-shadow: 0 0 1rem #493263;
   color: #fff;
-  width: minmax(100%, 500px);
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .top {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  margin: 2rem 0 13rem;
 }
 
 .top span {
@@ -55,10 +62,11 @@ body {
   top: .7rem;
 }
 
-.bottom h1 {
+h1 {
   font-size: 1rem;
   font-weight: 100;
   letter-spacing: .1rem;
+  text-align: center;
 }
 
 .bottom h2 {
@@ -89,45 +97,14 @@ body {
   height: 100%;
   position: relative;
   text-align: center;
-  padding-top: 30%;
 }
 
-.bottom ul li:nth-child(1)::before {
-  content: "\f72e";
-  display: block;
-  font-family: "FontAwesome";
-  font-weight: 400;
-  height: 50px;
-  width: 50px;
-  font-size: 3em;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-}
-
-.bottom ul li:nth-child(2)::before {
-  content: "\f043";
-  display: block;
-  font-family: "FontAwesome";
-  font-weight: 400;
-  height: 50px;
-  width: 50px;
-  font-size: 3em;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-}
-
-.bottom ul li:nth-child(3)::before {
-  content: "\f5cd";
-  display: block;
-  font-family: "FontAwesome";
-  font-weight: 400;
-  height: 50px;
-  width: 50px;
-  font-size: 3em;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+@media screen and (min-width: 500px) {
+  .card {
+    border-radius: .25rem;
+    -webkit-box-shadow: 0 0 1rem #493263;
+            box-shadow: 0 0 1rem #493263;
+    max-height: 80vh;
+  }
 }
 /*# sourceMappingURL=main.css.map */
