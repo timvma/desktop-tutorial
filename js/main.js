@@ -1,33 +1,34 @@
-const vm = new Vue({
+new Vue({
     el: '#app',
-    data: ()=>{ 
-        return {
-            results:[],
-            timeDate:new Date().toLocaleDateString([], {month:'long',day:'numeric'}),
-            weekday: new Date().toLocaleDateString([], {weekday:'short'}),
-            temp:results.main.temp,
-            error:'error', 
-
-        //speed:parseInt(results.wind.speed),
-        //speed:this.results.wind.speed,
-        //humidity:parseInt(this.results.main.humidity),
-        //pressure:parseInt(this.results.main.pressure),
-        }
+    data: {
+        results: [],
+        datenow: '',
+        datemonth:'Month',
+        datetime: '',
+        dateweek: '',
     },
+    methods: {
+        time() {
+            var d = new Date();
+            this.datenow = d.getDate();
+            this.datetime =  d.getHours() +" : "
+            +d.getMinutes();
+            this.datemonth =  d.getMonth();
+            this.dateweek =  d.getDate();
 
-    computed:{
-        getNotifications:function () {
-            axios
-            .get('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&units=metric&appid=1feaed6664354e68716f8f6fbb03ff5a')
-            .then(response=>this.results = response.data)
-            .catch(error => this.error = error)
-        }
+      },
+      weather(){
+        axios.get('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&units=metric&appid=1feaed6664354e68716f8f6fbb03ff5a')
+        .then(response=>this.results = response.data)
+        .catch(error=>console.log(error))
+      }
+
     },
-    mounted(){
-
-         setInterval(() => this.getNotifications, 1000);
-        
-
+    mounted() {
+      this.interval = setInterval(this.time, 1000)
+      this.interval = setInterval(this.weather, 1000) // 10secs
+    },
+    beforeDestroy() {
+      clearInterval(this.interval)
     }
-
-  });
+});

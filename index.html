@@ -16,29 +16,30 @@
         <div class="wrap">
             <div class="card">
                 <div class='top'>
-                    <span>{{}}</span>
-                    <p>{{}}</p>
+                    <span>{{results.main.temp}}</span>
+                    <p>{{results.weather[0].description}}</p>
                 </div>
-                <h1>{{ }}</h1>
+
+
                 
                 <div class="bottom">
-                   
+                    <h1>{{  }}</h1>
                     <h2>
-                        <span>{{weekday}}</span>
+                        <span>{{dateweek}}</span>
                         <span>
-                            {{timeDate}}
+                            {{datemonth}}
                         </span>
                         <span>
-                            {{temp}}
+                            {{datetime }}
                         </span>
                     </h2>
                     <ul>
-                        <li>{{  }} KM/H</li>
-                        <li>{{  }}%</li>
+                        <li>{{ }} KM/H</li>
+                        <li>{{ }}%</li>
                         <li>{{  }} mb</li>
                     </ul>
                     
-                     {{error}}
+                     
 
                 </div>
                 
@@ -55,9 +56,12 @@
 
     <script>
     
-
+   fetch('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&appid=1feaed6664354e68716f8f6fbb03ff5a')
+    .then(response => response.json())
+    .then(results => { console.log(results) }) 
    
-    
+
+
    </script>
 </body>
 </html>
