@@ -17,6 +17,20 @@ new Vue({
         city:'shinjuku',
         latlocation:'0',
         lonlocation:'0',
+        months: [
+          'January',
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ]
 
     },
     methods: {
@@ -27,7 +41,7 @@ new Vue({
             this.datetime =  d.getHours() +" : "
             +d.getMinutes();
             this.datemonth =  d.getMonth() +" "+ d.getDate();
-            this.dateweek =  this.weekday[1];
+            this.dateweek =  this.weekday[d.getDate()];
         },
         
         weather(){
@@ -50,15 +64,13 @@ new Vue({
           this.cityName();
         },
         errorz(e){
-          alert('error')
+          alert('ERROR PERMISION NEEDED')
         },
-
         cityName() {
           axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${this.latlocation}&longitude=${this.lonlocation}&localityLanguage=en`)
           .then(response=>this.city = response.data)
           .catch(console.log('error'))
         }
-
     },
     mounted() {
       this.getLocation();
