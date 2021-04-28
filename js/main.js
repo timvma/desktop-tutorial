@@ -41,7 +41,6 @@ new Vue({
             navigator.geolocation.getCurrentPosition(this.successz,this.errorz)
           } else { 
             alert('GEO NEEDED');
-      
           }
         },
         successz(pos) {
