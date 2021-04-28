@@ -23,7 +23,7 @@
 
                 
                 <div class="bottom">
-                    <h1>{{  }}</h1>
+                    <h1>{{ city.city}}</h1>
                     <h2>
                         <span>{{dateweek}}</span>
                         <span>
@@ -38,8 +38,10 @@
                         <li>{{ }}%</li>
                         <li>{{  }} mb</li>
                     </ul>
-                    
-                     
+                 {{latlocation}}   <br>
+                 {{lonlocation}}   
+                 
+                 
 
                 </div>
                 
@@ -60,7 +62,8 @@
     .then(response => response.json())
     .then(results => { console.log(results) }) 
    
-
+    
+    
 
    </script>
 </body>
