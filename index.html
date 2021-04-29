@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
@@ -13,57 +13,35 @@
 <body>
 
     <main id="app">
-        <div class="wrap">
+       
             <div class="card">
                 <div class='top'>
                     <span>{{results.main.temp}}</span>
                     <p>{{results.weather[0].description}}</p>
                 </div>
-
-
-                
+                <h1>{{city.city}}</h1>
                 <div class="bottom">
-                    <h1>{{ city.city}}</h1>
                     <h2>
-                        <span>{{dateweek}}</span>
-                        <span>
-                            {{datemonth}}
-                        </span>
-                        <span>
-                            {{datetime }}
-                        </span>
+                        <span><i v-if='loading' class="fas fa-cog fa-spin"></i>{{dateDay}}</span><br>
+                        <span><i v-if='loading' class="fas fa-cog fa-spin"></i>{{dateDate}}</span>
+                        <span><i v-if='loading' class="fas fa-cog fa-spin"></i>{{dateTime }}</span>
                     </h2>
                     <ul>
                         <li>{{ }} KM/H</li>
                         <li>{{ }}%</li>
                         <li>{{  }} mb</li>
                     </ul>
-             
-                 
-                 
-
                 </div>
-                
-
             </div>
-
-           
-        </div>
+            <button v-on:click='changeUnit'>{{unit}}</button>
     </main>
- 
+    
+{{lon}}
+
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" async defer></script>
 
-    <script>
     
-   fetch('https://api.openweathermap.org/data/2.5/weather?q=shinjuku&appid=1feaed6664354e68716f8f6fbb03ff5a')
-    .then(response => response.json())
-    .then(results => { console.log(results) }) 
-   
-    
-    
-
-   </script>
 </body>
 </html>
