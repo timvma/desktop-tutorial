@@ -36,7 +36,6 @@ body {
     padding:10vw;
 }
 .top {
-    background: #123;
     display: grid;
     place-items: center;
     span {
@@ -123,7 +122,7 @@ h1{
         border-radius: .25rem;
         box-shadow: 0 0 1rem rgba(73,50,99,1);
         max-height: 80vh;
-    
+        padding:3rem; 
     }
 }
 

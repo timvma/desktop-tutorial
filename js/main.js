@@ -35,9 +35,9 @@ new Vue({
           unit:'Metric',
           unitM:true,
           loading:true,
+          gpsNotFound:false,
     },
     beforeMount(){
-      
         this.weather();
         this.interval = setInterval(this.time, 1000)
         this.interval = setInterval(this.weather, 100000) // 10secs
@@ -62,7 +62,7 @@ new Vue({
 
         getLocation() {
           if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(this.successz,this.errorz)
+            navigator.geolocation.getCurrentPosition(this.successz, this.errorz)
           } 
         },
 
@@ -73,7 +73,7 @@ new Vue({
         
         },
         errorz(e){
-          alert('ERROR PERMISION NEEDED')
+          this.gpsNotFound=true;
         },
        
         changeUnit(){

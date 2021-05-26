@@ -43,7 +43,6 @@ body {
 }
 
 .top {
-  background: #123;
   display: -ms-grid;
   display: grid;
   place-items: center;
@@ -96,6 +95,7 @@ h1 {
     -webkit-box-shadow: 0 0 1rem #493263;
             box-shadow: 0 0 1rem #493263;
     max-height: 80vh;
+    padding: 3rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
