@@ -4,125 +4,150 @@
     padding:0;
 }
 
-
   
 body {
     background: rgb(73,50,99);
-    background: linear-gradient(280deg, rgba(73,50,99,1) 0%, rgba(217,160,219,1) 100%) no-repeat;
-    background-size: cover;
-    font-family: 'Antonio', sans-serif;
+    background: linear-gradient(0deg, rgba(73,50,99,1) 0%, rgba(217,160,219,1) 100%);
+    background-size: 100% 100%;
+    height: 100%;
+    width:100%;
+    min-height: 100vh;
     overflow: hidden;
+    display: grid;
+    place-content: center;
 }
 
-#app {
-    display: grid;
-    place-items: center;
-    width: 100vw;
-    height: 100vh;
+
+#sun-moon {
+    height: 60vw;
+    width: 60vw;
+
+    position: absolute;
+    top: calc(50% - 25vw);
+    left: calc(50% - 25vw);
+    
+    transition: all ease-out 2s;
+}
+
+
+#sun {
+    background-color: rgb(252, 252, 37);
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 3vw);
+    left: 0;
+}
+
+#moon {
+    background-color: rgb(42, 42, 42);
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 3vw);
+    right: 0;
+ 
+
+}
+
+#mountain {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: #000;
+    left: 0;
+    bottom: 0;
+}
+
+
+#mountain1 {
+    position: absolute;
+    border-left: 20vw solid transparent;
+    border-right: 20vw solid transparent; 
+    border-bottom:20vw solid #000; 
+    left: 30%;
+    top: -15vw;
+}
+
+#mountain2 {
+    position: absolute;
+    border-left: 15vw solid transparent;
+    border-right: 15vw solid transparent; 
+    border-bottom:15vw solid #000; 
+    left: 50%;
+    top: -10vw;
+}
+
+#mountain3 {
+    position: absolute;
+    border-left: 15vw solid transparent;
+    border-right: 15vw solid transparent; 
+    border-bottom:15vw solid #000; 
+    left: 15%;
+    top: -5vw;
+}
+#mountain1::after {
+    content: "";
+    position: absolute;
+    border-left: 20vw solid transparent;
+    border-right: 20vw solid transparent; 
+    border-bottom:15vw solid #222; 
+    transform: translateX(-37vw);
+    z-index: -1;
+}
+#mountain2::after {
+    content: "";
+    position: absolute;
+    border-left: 15vw solid transparent;
+    border-right: 15vw solid transparent; 
+    border-bottom:10vw solid #222; 
+    transform: translateX(-7vw);
+    z-index: -1;
+}
+#mountain3::after {
+    content: "";
+    position: absolute;
+    border-left: 20vw solid transparent;
+    border-right: 20vw solid transparent; 
+    border-bottom:10vw solid #222; 
+    transform: translateX(-36vw);
+    z-index: -1;
+}
+
+
+
+
+#card {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+#temperature {
+    position: absolute;
+    font-size: 100px;
+    font-weight: 600;
+    top: 10vh;
+    left: calc(50% - 50px);
+    font-family: 'Courier New', Courier, monospace;
+    color: transparent;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  opacity: 0.7;
     
 }
 
-
-.card {
-    background: linear-gradient(180deg, rgba(73,50,99,1) 0%, rgba(217,160,219,1) 100%) no-repeat;
-    color:#fff;
-    width: 100vw;
-    max-width: 500px;
-    height:100vh;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding:10vw;
+#temperature::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top:10px;
+    right: 0;
+    border: 2px solid #000;
+    border-radius: 50%;
+    
 }
-.top {
-    display: grid;
-    place-items: center;
-    span {
-        font-size: 4rem;
-        position: relative;
-        &::after {
-        content: "";
-        position: absolute;
-        height:.65rem;
-        width:.55rem;
-        border: .2rem solid #fff;
-        border-radius: 60%;
-        top: .7rem; 
-        }
-    }
-    p {
-        font-size: 2rem;
-    }
-}
-
-
-h1{
-    width:100%;
-    font-size: 3rem;
-    letter-spacing: 1ch;
-    text-align: center;
-}
-.bottom {
- 
-    ul{
-        display: flex;
-        list-style: none;
-        height:100px;
-        li {
-            width:calc(100%/3);
-            height: 100%;
-            position: relative;
-            text-align: center;
-            
-            // &:nth-child(1)::before{
-            //     content: "\f72e";
-            //     display: block;
-            //     font-family: "FontAwesome";
-            //     font-weight: 400;
-            //     height:50px;
-            //     width:50px;
-            //     font-size: 3em;
-            //     position:absolute;
-            //     top:1rem;
-            //     left:1rem;
-            // }
-            // &:nth-child(2)::before{
-            //     content: "\f043";
-            //     display: block;
-            //     font-family: "FontAwesome";
-            //     font-weight: 400;
-            //     height:50px;
-            //     width:50px;
-            //     font-size: 3em;
-            //     position:absolute;
-            //     top:1rem;
-            //     left:1rem;
-            // }
-            // &:nth-child(3)::before{
-            //     content: "\f5cd";
-            //     display: block;
-            //     font-family: "FontAwesome";
-            //     font-weight: 400;
-            //     height:50px;
-            //     width:50px;
-            //     font-size: 3em;
-            //     position:absolute;
-            //     top:1rem;
-            //     left:1rem;
-            // }
-
-        }
-    }
-        
-}
-
-@media screen and (min-width:500px){
-    .card {
-        border-radius: .25rem;
-        box-shadow: 0 0 1rem rgba(73,50,99,1);
-        max-height: 80vh;
-        padding:3rem; 
-    }
-}
-
