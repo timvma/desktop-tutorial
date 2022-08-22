@@ -7,16 +7,22 @@
 
 body {
   background: #493263;
-  background: -webkit-gradient(linear, left bottom, left top, from(#493263), to(#d9a0db));
-  background: linear-gradient(0deg, #493263 0%, #d9a0db 100%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(100%, #7ab5e2), color-stop(0%, #aad5e1));
+  background: linear-gradient(0deg, #7ab5e2 100%, #aad5e1 0%);
   background-size: 100% 100%;
   height: 100%;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   display: -ms-grid;
   display: grid;
   place-content: center;
+  display: grid;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: block;
 }
 
 #sun-moon {
@@ -72,7 +78,7 @@ body {
   border-left: 15vw solid transparent;
   border-right: 15vw solid transparent;
   border-bottom: 15vw solid #000;
-  left: 50%;
+  left: 45%;
   top: -10vw;
 }
 
@@ -85,14 +91,24 @@ body {
   top: -5vw;
 }
 
+#mountain4 {
+  position: absolute;
+  border-left: 20vw solid transparent;
+  border-right: 20vw solid transparent;
+  border-bottom: 20vw solid #000;
+  left: 23%;
+  top: -12vw;
+}
+
 #mountain1::after {
   content: "";
   position: absolute;
   border-left: 20vw solid transparent;
   border-right: 20vw solid transparent;
-  border-bottom: 15vw solid #222;
-  -webkit-transform: translateX(-37vw);
-          transform: translateX(-37vw);
+  border-bottom: 11vw solid #222;
+  -webkit-transform: translateX(-42vw);
+          transform: translateX(-42vw);
+  top: 5vw;
   z-index: -1;
 }
 
@@ -102,8 +118,8 @@ body {
   border-left: 15vw solid transparent;
   border-right: 15vw solid transparent;
   border-bottom: 10vw solid #222;
-  -webkit-transform: translateX(-7vw);
-          transform: translateX(-7vw);
+  -webkit-transform: translateX(2vw);
+          transform: translateX(2vw);
   z-index: -1;
 }
 
@@ -115,6 +131,17 @@ body {
   border-bottom: 10vw solid #222;
   -webkit-transform: translateX(-36vw);
           transform: translateX(-36vw);
+  z-index: -1;
+}
+
+#mountain4::after {
+  content: "";
+  position: absolute;
+  border-left: 20vw solid transparent;
+  border-right: 20vw solid transparent;
+  border-bottom: 12vw solid #222;
+  -webkit-transform: translateX(5vw);
+          transform: translateX(5vw);
   z-index: -1;
 }
 
